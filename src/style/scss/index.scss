@@ -1,8 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Roboto', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +8,136 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+//Header
+.headerContainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #020203;
+  height: 91px;
+}
+
+.headerLogo{
+  height: 60px;
+  padding-left: 20px;
+}
+
+.headerNavigation{
+  display: flex;
+  justify-content: space-between;
+  width: 75%;
+  padding: 0 40px;
+}
+
+.headerNavigation a{
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+//Main section
+.main{
+  display: flex;
+}
+
+//LeftBar
+.leftBarContainer{
+  display:flex;
+  flex-direction: column;
+  width: 117px;
+  height: 1024px;
+  padding: 500px 0px 60px 0px;
+  background-color: #020203;
+  align-items: center;
+  justify-content: space-between;
+
+  img{
+    width: 64px;
+    height: 64px;
+    margin: 10px;
+    border-radius: 6px;
+  }
+
+  .copyright{
+    color: white;
+    font-size: 12px;
+    writing-mode: vertical-rl;
+    -moz-writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    -moz-transform:rotate(180deg);
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.leftBarImgWrap{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+//Dashboard
+.dashboard{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 80px;
+  width: calc(100% - 117px);
+}
+
+//Title
+.titleWrap{
+  font-size: 48px;
+  font-weight: 500;
+}
+
+.nameWrap{
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.titleName{
+  margin-left: 20px;
+  color: #FF0000;
+}
+
+.titleCongrats{
+  font-size: 18px;
+  font-weight: 400;
+}
+
+//Charts article section
+article{
+  display: flex;
+  flex-direction: column;
+}
+
+// .mainChart{
+//   width: 835px;
+//   height: 320px;
+// }
+
+.yAxis, .xAxis{
+  font-weight: 500;
+  font-size: 14px;
+  color: #9B9EAC;
+}
+
+.activityLegendColor{
+  color: #74798C;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.otherCharts{
+  display: flex;
+}
+
+//Nutrition aside section
+aside{
+  display: flex;
+  flex-direction: column;
 }
