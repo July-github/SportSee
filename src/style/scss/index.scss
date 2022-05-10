@@ -109,27 +109,65 @@ code {
   font-weight: 400;
 }
 
+//Charts section
+.charts{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
 //Charts article section
 article{
   display: flex;
   flex-direction: column;
+  margin-top: 60px;
+  width: 80%;
+  align-items: center;
 }
 
-// .mainChart{
-//   width: 835px;
-//   height: 320px;
-// }
+.mainChart{
+background-color: #FBFBFB;
+padding: 20px;
+position: relative;
+width: 100%;
+display: flex;
+justify-content: center;
+border-radius: 5px;
+}
 
-.yAxis, .xAxis{
+.activityChartTitle{
+  position: absolute;
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0;
+  top: 30px;
+  left: 30px;
+}
+
+.activityYAxis, .activityXAxis{
   font-weight: 500;
   font-size: 14px;
-  color: #9B9EAC;
 }
 
 .activityLegendColor{
   color: #74798C;
   font-size: 14px;
   font-weight: 500;
+}
+
+.activityChartTooltip{
+  background-color: #E60000;
+  color: white;
+  font-weight: 500;
+  font-size: 7px;
+  height: 45px;
+  width: 39px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  padding: 15px 5px;
 }
 
 .otherCharts{
@@ -140,4 +178,71 @@ article{
 aside{
   display: flex;
   flex-direction: column;
+  height: 100%;
+  margin-left: 60px;
+  margin-top: 60px;
+  width: 20%;
+  justify-content: space-between;
+}
+
+.nutritionCard{
+  background-color: #FBFBFB;
+  padding: 30px;
+  display: flex;
+}
+
+.nutritionCardIcon{
+  width: 60px;
+  height: 60px;
+}
+
+.nutritionCardText{
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.nutritionCardKeyData{
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.nutritionCardKeyType{
+  font-weight: 500;
+  font-size: 14px;
+}
+
+//Other charts section
+.sessionDurationChart{
+  background-color: #FF0000;
+  border-radius: 5px;
+  margin: 30px;
+  padding: 10px 10px;
+}
+
+.sessionDurationXAxis{
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.sessionDurationChartTitle{
+  font-size: 15px;
+  font-weight: 500;
+  color: #FFFFFF;
+  width: 150px;
+  margin-left: 20px;
+}
+
+.sessionDurationChartTooltip{
+  display: flex;
+  width: 40px;
+  height: 25px;
+  background-color: #FFFFFF;
+  font-size: 8px;
+  font-weight: 500;
+  justify-content: center;
+  align-items: center;
 }

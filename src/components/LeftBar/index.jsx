@@ -4,7 +4,7 @@ import Fitness from '../../assets/iconFitness.svg'
 import Swim from '../../assets/iconSwim.svg'
 
 
-function LeftBar(){
+export default function LeftBar(){
 
     return(
         <div className='leftBarContainer'>
@@ -18,5 +18,3 @@ function LeftBar(){
         </div>
     )
 }
-
-export default LeftBar

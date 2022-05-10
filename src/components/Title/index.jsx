@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-function Title({id, firstname}){
+export default function Title({id, firstname}){
 
     return (
         <div className='titleWrap'><div className='nameWrap'>Bonjour<div key={id} className='titleName'>{firstname}</div></div>
@@ -9,9 +9,7 @@ function Title({id, firstname}){
     )
 }
 
-Title.profileData = {
+Title.propTypes = {
     id: PropTypes.number.isRequired,
     firstname: PropTypes.string.isRequired
 }
-
-export default Title
