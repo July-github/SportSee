@@ -14,37 +14,37 @@ import PerformanceChart from '../../components/Charts/PerformanceChart'
 import ScoreChart from '../../components/Charts/ScoreChart'
 
 
-export default function Profile(){
+export default function User(){
     const navigate = useNavigate()
     const {id} = useParams()
-    const [profileData, setProfileData] = useState()
-    const [profileActivity, setProfileActivity] = useState()
-    const [profileSessionDuration, setProfileSessionDuration] = useState()
-    const [profilePerformance, setProfilePerformance] = useState()
+    const [UserData, setUserData] = useState()
+    const [UserActivity, setUserActivity] = useState()
+    const [UserSessionDuration, setUserSessionDuration] = useState()
+    const [UserPerformance, setUserPerformance] = useState()
 
     useEffect(()=>{
-        const profileDatas = USER_MAIN_DATA
-        const profileActivities = USER_ACTIVITY
-        const profileSessionDurations = USER_AVERAGE_SESSIONS
-        const profilePerformances = USER_PERFORMANCE
+        const UserDatas = USER_MAIN_DATA
+        const UserActivities = USER_ACTIVITY
+        const UserSessionDurations = USER_AVERAGE_SESSIONS
+        const UserPerformances = USER_PERFORMANCE
 
-        const currentProfileData = profileDatas.find(profileData => (profileData.id).toString() === id)
-        const currentProfileActivity = profileActivities.find(profileActivity => (profileActivity.userId).toString() === id)
-        const currentProfileSessionDuration = profileSessionDurations.find(profileSessionDuration => (profileSessionDuration.userId).toString() === id)
-        const currentProfilePerformance = profilePerformances.find(profilePerformance => (profilePerformance.userId).toString() === id)
+        const currentUserData = UserDatas.find(UserData => (UserData.id).toString() === id)
+        const currentUserActivity = UserActivities.find(UserActivity => (UserActivity.userId).toString() === id)
+        const currentUserSessionDuration = UserSessionDurations.find(UserSessionDuration => (UserSessionDuration.userId).toString() === id)
+        const currentUserPerformance = UserPerformances.find(UserPerformance => (UserPerformance.userId).toString() === id)
 
-        if((!currentProfileData) || (!currentProfileActivity) || (!currentProfileSessionDuration) || (!currentProfilePerformance)){
+        if((!currentUserData) || (!currentUserActivity) || (!currentUserSessionDuration) || (!currentUserPerformance)){
             navigate('/Error')
         }
 
-        setProfileData(currentProfileData)
-        setProfileActivity(currentProfileActivity)
-        setProfileSessionDuration(currentProfileSessionDuration)
-        setProfilePerformance(currentProfilePerformance)
+        setUserData(currentUserData)
+        setUserActivity(currentUserActivity)
+        setUserSessionDuration(currentUserSessionDuration)
+        setUserPerformance(currentUserPerformance)
         
     }, [navigate, id])
 
-    if((!profileData) || (!profileActivity) || (!profileSessionDuration) || (!profilePerformance)){
+    if((!UserData) || (!UserActivity) || (!UserSessionDuration) || (!UserPerformance)){
         return null
     }
 
@@ -53,30 +53,30 @@ export default function Profile(){
             <LeftBar />
             <div className='dashboard'>
                 <Title 
-                    id={profileData.id}
-                    firstname={profileData.userInfos.firstName}
+                    id={UserData.id}
+                    firstname={UserData.userInfos.firstName}
                 />
                 <section className='charts'>
                     <article>
                         <div className='mainChart'>
                             <ActivityChart 
-                                    dataActivity={profileActivity.sessions}
+                                    dataActivity={UserActivity.sessions}
                             />
                         </div>
                         <div className='otherCharts'>
                             <div className='sessionDurationChart'>
                                 <SessionDurationChart 
-                                    dataSessionDuration={profileSessionDuration.sessions}
+                                    dataSessionDuration={UserSessionDuration.sessions}
                                 />
                             </div>
                             <div  className='performanceChart'>
                                 <PerformanceChart 
-                                    dataPerformance={profilePerformance.data}
+                                    dataPerformance={UserPerformance.data}
                                 />
                             </div>
                             <div  className='scoreChart'>
                                 <ScoreChart 
-                                    dataScore={profileData}
+                                    dataScore={UserData}
                                 />
                             </div>
                         </div>
@@ -84,27 +84,27 @@ export default function Profile(){
                     <aside>
                         <NutritionCard
                             icon={CaloriesIcon}
-                            keyDataSwitch={[`${profileData.keyData.calorieCount}`, 'kCal']}
+                            keyDataSwitch={[`${UserData.keyData.calorieCount}`, 'kCal']}
                             keyDataType='Calories'
-                            id = {profileData.id}
+                            id = {UserData.id}
                         />
                         <NutritionCard
                             icon={CarbsIcon}
-                            keyDataSwitch={[`${profileData.keyData.proteinCount}`, 'g']}
+                            keyDataSwitch={[`${UserData.keyData.proteinCount}`, 'g']}
                             keyDataType='Proteines'
-                            id = {profileData.id}
+                            id = {UserData.id}
                         />
                         <NutritionCard
                             icon={FatIcon}
-                            keyDataSwitch={[`${profileData.keyData.carbohydrateCount}`, 'g']}
+                            keyDataSwitch={[`${UserData.keyData.carbohydrateCount}`, 'g']}
                             keyDataType='Glucides'
-                            id = {profileData.id}
+                            id = {UserData.id}
                         />
                         <NutritionCard
                             icon={ProteinIcon}
-                            keyDataSwitch={[`${profileData.keyData.carbohydrateCount}`, 'g']}
+                            keyDataSwitch={[`${UserData.keyData.carbohydrateCount}`, 'g']}
                             keyDataType='Lipides'
-                            id = {profileData.id}
+                            id = {UserData.id}
                         />
 
                     </aside>

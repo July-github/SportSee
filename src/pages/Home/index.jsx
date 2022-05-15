@@ -3,14 +3,14 @@ import { USER_MAIN_DATA } from '../../datas/datasMocked'
 
 
 function Home(){
-    const profileDatas = USER_MAIN_DATA
+    const UserDatas = USER_MAIN_DATA
 
     return(
         <ul>
-        {profileDatas.map(profileData => 
-            <Link to={`/Profile/${profileData.id}`} key={profileData.id}>
+        {UserDatas.map(UserData => 
+            <Link to={`/User/${UserData.id}`} key={UserData.id}>
                 <li>
-                    User : {profileData.userInfos.firstName}
+                    User : {UserData.userInfos.firstName}
                 </li>
             </Link>
         )}

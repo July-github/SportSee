@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './style/scss/index.scss';
 import Header from './components/Header/index';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import Profile from './pages/Profile/index';
+import User from './pages/User/index';
 import Error from './pages/Error'
 import Home from './pages/Home/index'
 
@@ -15,7 +15,7 @@ root.render(
       <Header/>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Profile/:id" element={<Profile />} />
+        <Route path="/User/:id" element={<User />} />
         <Route path="/*" element={<Error />} />
       </Routes>
     </Router>
