@@ -1,4 +1,5 @@
-import { CartesianGrid, LineChart, XAxis, YAxis, Tooltip, Line } from "recharts";
+import { CartesianGrid, LineChart, XAxis, YAxis, Tooltip, Line, ReferenceArea, ResponsiveContainer } from "recharts";
+import PropTypes from 'prop-types'
 
 export default function SessionDurationChart({dataSessionDuration}){
 
@@ -16,34 +17,73 @@ export default function SessionDurationChart({dataSessionDuration}){
         }
     }
 
-function CustomToolTypeSessionDuration({payload, active}){
-    if(active){
-        return (
-            <div className='sessionDurationChartTooltip'>
-                <div>{`${payload[0].value}`}min</div>
-            </div>
-        )
+    function CustomToolTypeSessionDuration({payload, active}){
+        if(active){
+            return (
+                <div className='sessionDurationChartTooltip'>
+                    <div>{`${payload[0].value}`}min</div>
+                </div>
+            )
+        }
+        return null
     }
-    return null
-}
+
+    function customMouseMove(e){
+        let sessionWrap = document.querySelector('.sessionDurationWrap');
+
+        if (e.isTooltipActive) {
+          let windowWidth = sessionWrap.offsetWidth;
+          let mouseXpercent = Math.floor(
+            (e.activeCoordinate.x / windowWidth) * 100
+          );
+          
+          sessionWrap.style.background = `linear-gradient(90deg, rgba(255,0,0, 1) ${mouseXpercent}%, rgba(0,0,0,0.1) ${mouseXpercent}%, rgba(0,0,0,0.1) 100%)`;
+        }
+        else{
+            sessionWrap.style.background ='transparent'
+        }
+    }
+
+    function customOnMouseOut(){
+        let sessionWrap = document.querySelector('.sessionDurationWrap');
+        sessionWrap.style.background ='transparent'
+    }
 
     return (
-        <LineChart
-            width={258}
-            height={200}
-            data={dataSessionDuration}
-            margin={{
-                top:30,
-                right:10,
-                left:10,
-                bottom:50
-            }}
-        >
-            <CartesianGrid horizontal={false} vertical={false} />
-            <XAxis className='sessionDurationXAxis' dataKey='day' type="category" axisLine={false} tickLine={false} tickFormatter={xAxisFormatter} stroke='#FFFFFF' tickMargin={50}/>
-            <YAxis hide='true' domain={['dataMin', 'dataMax']} />
-            <Tooltip content={<CustomToolTypeSessionDuration />} cursor={false} />
-            <Line dataKey='sessionLength' type='natural' stroke='#FFFFFF' dot={false} strokeWidth={2} />
-        </LineChart>
+        <div className="sessionDurationWrap">
+            <h2 className='sessionDurationChartTitle'>Durée moyenne des sessions</h2>
+            <ResponsiveContainer width={268} height={220} >
+                <LineChart
+                    data={dataSessionDuration}
+                    margin={{
+                        top:30,
+                        right:10,
+                        left:10,
+                        bottom:50
+                    }}
+                    onMouseMove={(e) => customMouseMove(e)}
+                    onMouseOut={() => customOnMouseOut()}
+                >
+                    <CartesianGrid horizontal={false} vertical={false} />
+                    <XAxis 
+                        dataKey='day' 
+                        type="category" 
+                        axisLine={false} 
+                        tickLine={false} 
+                        tick={{fontSize: 12, fontWeight: 500}} 
+                        tickFormatter={xAxisFormatter} 
+                        stroke='rgba(255, 255, 255, 0.5)' 
+                        tickMargin={50}
+                    />
+                    <YAxis hide='true' domain={['dataMin', 'dataMax']} />
+                    <Tooltip content={<CustomToolTypeSessionDuration />} cursor={false} />
+                    <Line dataKey='sessionLength' type='natural' stroke='#FFFFFF' dot={false} strokeWidth={2} />
+                </LineChart>
+            </ResponsiveContainer>
+        </div>
     )
+}
+
+SessionDurationChart.propTypes={
+    dataSessionDuration: PropTypes.array.isRequired
 }

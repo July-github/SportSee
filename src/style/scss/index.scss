@@ -3,6 +3,9 @@ body {
   font-family: 'Roboto', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 1444px;
+  height: 1024px;
+  box-sizing: border-box;
 }
 
 code {
@@ -48,10 +51,8 @@ code {
   flex-direction: column;
   width: 117px;
   height: 1024px;
-  padding: 500px 0px 60px 0px;
   background-color: #020203;
-  align-items: center;
-  justify-content: space-between;
+  position: relative;
 
   img{
     width: 64px;
@@ -59,22 +60,26 @@ code {
     margin: 10px;
     border-radius: 6px;
   }
+}
 
-  .copyright{
-    color: white;
-    font-size: 12px;
-    writing-mode: vertical-rl;
-    -moz-writing-mode: vertical-rl;
-    transform: rotate(180deg);
-    -moz-transform:rotate(180deg);
-    display: flex;
-    justify-content: flex-end;
-  }
+.copyright{
+  color: white;
+  font-size: 12px;
+  writing-mode: vertical-rl;
+  -moz-writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  -moz-transform:rotate(180deg);
+  position: absolute;
+  bottom: 40px;
+  left: 52px;
 }
 
 .leftBarImgWrap{
   display:flex;
   flex-direction: column;
+  width: 117px;
+  height: 1024px;
+  background-color: #020203;
   align-items: center;
   justify-content: center;
 }
@@ -84,8 +89,9 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin: 80px;
+  padding: 60px;
   width: calc(100% - 117px);
+  height: 100%;
 }
 
 //Title
@@ -109,34 +115,41 @@ code {
   font-weight: 400;
 }
 
+.iconClap{
+  width: 20px;
+  height: 20px;
+}
+
 //Charts section
 .charts{
   display: flex;
   justify-content: space-between;
   width: 100%;
   height: 100%;
+  padding-top: 60px;
 }
 
 //Charts article section
 article{
   display: flex;
   flex-direction: column;
-  margin-top: 60px;
   width: 80%;
   align-items: center;
+  justify-content: space-between;
 }
 
 .mainChart{
-background-color: #FBFBFB;
-padding: 20px;
-position: relative;
-width: 100%;
-display: flex;
-justify-content: center;
-border-radius: 5px;
+  background-color: #FBFBFB;
+  padding: 20px;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  box-sizing: border-box;
 }
 
-.activityChartTitle{
+.activityChartTitle, .scoreChartTitle{
   position: absolute;
   font-size: 15px;
   font-weight: 500;
@@ -170,17 +183,11 @@ border-radius: 5px;
   padding: 15px 5px;
 }
 
-.otherCharts{
-  display: flex;
-}
-
 //Nutrition aside section
 aside{
   display: flex;
   flex-direction: column;
-  height: 100%;
-  margin-left: 60px;
-  margin-top: 60px;
+  padding-left: 60px;
   width: 20%;
   justify-content: space-between;
 }
@@ -216,24 +223,45 @@ aside{
 }
 
 //Other charts section
+.otherCharts{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+}
+
 .sessionDurationChart{
   background-color: #FF0000;
   border-radius: 5px;
-  margin: 30px;
-  padding: 10px 10px;
+  width: 278px;
+  height: 283px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
-.sessionDurationXAxis{
-  font-size: 40px;
-  font-weight: 500;
+.sessionDurationWrap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  &.recharts-responsive-container{
+    margin-top: 50px;
+  }
 }
 
 .sessionDurationChartTitle{
   font-size: 15px;
   font-weight: 500;
   color: #FFFFFF;
+  opacity: 0.5;
   width: 150px;
   margin-left: 20px;
+  position: absolute;
+  top: 10px;
+  left: 20px;
 }
 
 .sessionDurationChartTooltip{
@@ -245,4 +273,49 @@ aside{
   font-weight: 500;
   justify-content: center;
   align-items: center;
+}
+
+.performanceChart{
+  background-color: #282D30;
+  border-radius: 5px;
+  padding: 10px 10px;
+}
+
+.scoreChartWrap{
+  height: 263px;
+  width: 258px;
+}
+
+.scoreChart{
+  position: relative;
+  padding: 10px 10px;
+  background-color: #FBFBFB;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.score{
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 65px;
+  position: absolute;
+  top: 110px;
+  left: 80px;
+}
+
+.scoreText{
+  font-size: 16px;
+  font-weight: 500;
+  color: #74798C;
+  text-align: center;
+}
+
+.scoreResult{
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: #282D30;
 }
