@@ -93,6 +93,22 @@ code {
   justify-content: center;
 }
 
+//Home
+.homeUsers{
+  font-size: 60px;
+  font-weight: 500;
+  margin: 400px 0 0px 400px;
+  
+  & a{
+    text-decoration: none;
+    color: #FF0000;
+  }
+
+  & li{
+    margin: 40px 0;
+  }
+}
+
 //Dashboard
 .dashboard{
   display: flex;
