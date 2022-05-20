@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom'
 import { USER_MAIN_DATA } from '../../datas/datasMocked'
 
 
-export default function Home(){
+function Home(){
     const UserDatas = USER_MAIN_DATA
 
     return(
@@ -17,3 +17,5 @@ export default function Home(){
         </ul>
     )
 }
+
+export default Home

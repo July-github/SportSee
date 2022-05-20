@@ -1,8 +1,13 @@
-import { CartesianGrid, LineChart, XAxis, YAxis, Tooltip, Line, ReferenceArea, ResponsiveContainer } from "recharts";
+import { CartesianGrid, LineChart, XAxis, YAxis, Tooltip, Line, ResponsiveContainer } from "recharts";
 import PropTypes from 'prop-types'
 
-export default function SessionDurationChart({dataSessionDuration}){
+function SessionDurationChart({dataSessionDuration}){
 
+/**
+ * Format XAxis ticks
+ * @param {Number} day - day of the week
+ * @returns corresponding letter of the day
+ */
     const xAxisFormatter = (day) => {
         switch(day){
             case 1: return 'L';
@@ -12,12 +17,17 @@ export default function SessionDurationChart({dataSessionDuration}){
             case 5: return 'V';
             case 6: return 'S';
             case 7: return 'D';
-
             default: return '';
         }
     }
 
-    function CustomToolTypeSessionDuration({payload, active}){
+/**
+ * Format Tooltip
+ * @param {array} payload - source data
+ * @param {boolean} active - is Tootip active
+ * @returns the value when a dot on the line is pointed
+ */
+ function CustomToolTypeSessionDuration({payload, active}){
         if(active){
             return (
                 <div className='sessionDurationChartTooltip'>
@@ -28,6 +38,11 @@ export default function SessionDurationChart({dataSessionDuration}){
         return null
     }
 
+/**
+ * Animate background format when moving the cursor on the chart line
+ * @param {event} e - move of the mouse
+ * @returns darker background from the pointed dot
+ */
     function customMouseMove(e){
         let sessionWrap = document.querySelector('.sessionDurationWrap');
 
@@ -44,6 +59,11 @@ export default function SessionDurationChart({dataSessionDuration}){
         }
     }
 
+/**
+ * Animate background format when moving the cursor out of a line dot
+ * @param {event} e - move of the mouse
+ * @returns initial background
+ */
     function customOnMouseOut(){
         let sessionWrap = document.querySelector('.sessionDurationWrap');
         sessionWrap.style.background ='transparent'
@@ -52,14 +72,14 @@ export default function SessionDurationChart({dataSessionDuration}){
     return (
         <div className="sessionDurationWrap">
             <h2 className='sessionDurationChartTitle'>Durée moyenne des sessions</h2>
-            <ResponsiveContainer width={268} height={220} >
+            <ResponsiveContainer width="100%" height="100%" >
                 <LineChart
                     data={dataSessionDuration}
                     margin={{
-                        top:30,
-                        right:10,
-                        left:10,
-                        bottom:50
+                        top:80,
+                        right:8,
+                        left:8,
+                        bottom:40
                     }}
                     onMouseMove={(e) => customMouseMove(e)}
                     onMouseOut={() => customOnMouseOut()}
@@ -73,11 +93,16 @@ export default function SessionDurationChart({dataSessionDuration}){
                         tick={{fontSize: 12, fontWeight: 500}} 
                         tickFormatter={xAxisFormatter} 
                         stroke='rgba(255, 255, 255, 0.5)' 
-                        tickMargin={50}
+                        tickMargin={40}
                     />
                     <YAxis hide='true' domain={['dataMin', 'dataMax']} />
                     <Tooltip content={<CustomToolTypeSessionDuration />} cursor={false} />
-                    <Line dataKey='sessionLength' type='natural' stroke='#FFFFFF' dot={false} strokeWidth={2} />
+                    <Line 
+                        dataKey='sessionLength' 
+                        type='natural' 
+                        stroke='#FFFFFF' 
+                        dot={false} 
+                        strokeWidth={2} />
                 </LineChart>
             </ResponsiveContainer>
         </div>
@@ -87,3 +112,5 @@ export default function SessionDurationChart({dataSessionDuration}){
 SessionDurationChart.propTypes={
     dataSessionDuration: PropTypes.array.isRequired
 }
+
+export default SessionDurationChart

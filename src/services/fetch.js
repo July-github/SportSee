@@ -1,15 +1,25 @@
 const server = 'http://localhost:3000/'
 
-export default async function getAPIUserData(uri){
-    try{
-        let response = await fetch(server + uri)
-        let data = response.ok ? response.json() : console.log('no')
-
-        console.log('ok', server + uri, data)
-        
-        return data
-
-    }catch(e){
-        console.log(e.message)
-    }
+function getAPIUserData(uri){
+    return fetch(server + uri)
+        .then(response => response.json())
+        .then(response => response.data)
 }
+
+function getAPIUserDataMain(userId){
+    return getAPIUserData('user/' + userId)
+}
+
+function getAPIUserDataActivity(userId){
+    return getAPIUserData('user/' + userId + '/activity')
+}
+
+function getAPIUserDataAverage(userId){
+    return getAPIUserData('user/' + userId + '/average-sessions')
+}
+
+function getAPIUserDataPerformance(userId){
+    return getAPIUserData('user/' + userId + '/performance')
+}
+
+export {getAPIUserDataMain, getAPIUserDataActivity, getAPIUserDataAverage, getAPIUserDataPerformance}

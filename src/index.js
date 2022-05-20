@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './style/scss/index.scss';
+import './style/index.scss';
 import Header from './components/Header/index';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import User from './pages/User/index';

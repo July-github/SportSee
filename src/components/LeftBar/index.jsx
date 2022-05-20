@@ -4,19 +4,19 @@ import Fitness from '../../assets/iconFitness.svg'
 import Swim from '../../assets/iconSwim.svg'
 
 
-export default function LeftBar(){
+function LeftBar(){
 
     return(
         <div className='leftBarContainer'>
-            <div className='leftBarWrap' >
-                <div className='leftBarImgWrap' >
-                    <img className='leftBarIconYoga' src={Yoga} alt="Yogi"/>
-                    <img className='leftBarIconSwim' src={Swim} alt="Swimmer"/>
-                    <img className='leftBarIconBike' src={Bike} alt="Biker"/>
-                    <img className='leftBarIconFitness' src={Fitness} alt="Dumbbel"/>
-                </div>
-                <div className='copyright'>Copyright, SportSee 2020</div>
+            <div className='leftBarImgWrap' >
+                <img className='leftBarIconYoga' src={Yoga} alt="Yogi"/>
+                <img className='leftBarIconSwim' src={Swim} alt="Swimmer"/>
+                <img className='leftBarIconBike' src={Bike} alt="Biker"/>
+                <img className='leftBarIconFitness' src={Fitness} alt="Dumbbel"/>
             </div>
+            <div className='copyright'>Copyright, SportSee 2020</div>
         </div>
     )
 }
+
+export default LeftBar

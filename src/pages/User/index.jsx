@@ -2,7 +2,7 @@ import LeftBar from '../../components/LeftBar/index'
 import Title from '../../components/Title/index'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-// import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from '../../datas/datasMocked'
+import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from '../../datas/datasMocked'
 import ActivityChart from '../../components/Charts/ActivityChart/index'
 import NutritionCard from '../../components/Charts/NutritionCard'
 import CaloriesIcon from '../../assets/calories-icon.svg'
@@ -12,9 +12,9 @@ import ProteinIcon from '../../assets/protein-icon.svg'
 import SessionDurationChart from '../../components/Charts/SessionDurationChart'
 import PerformanceChart from '../../components/Charts/PerformanceChart'
 import ScoreChart from '../../components/Charts/ScoreChart'
-import getAPIUserData from '../../services/fetch'
+import {getAPIUserDataMain, getAPIUserDataActivity, getAPIUserDataAverage, getAPIUserDataPerformance} from '../../services/fetch'
 
-export default function User(){
+function User(){
     const navigate = useNavigate()
     const {userId} = useParams()
 
@@ -28,52 +28,53 @@ export default function User(){
     const [isError, setIsError]=useState(false)
 
     useEffect(()=>{
-    
-        // const userDatas = USER_MAIN_DATA
-        // const UserActivities = USER_ACTIVITY
-        // const userSessionDurations = USER_AVERAGE_SESSIONS
-        // const userPerformances = USER_PERFORMANCE
+        // if(datasMocked){
+        //     const userDatas = USER_MAIN_DATA
+        //     const UserActivities = USER_ACTIVITY
+        //     const userSessionDurations = USER_AVERAGE_SESSIONS
+        //     const userPerformances = USER_PERFORMANCE
 
-        // const currentUserData = userDatas.find(userData => (userData.id).toString() === userId)
-        // const currentUserActivity = UserActivities.find(userActivity => (userActivity.userId).toString() === userId)
-        // const currentUserSessionDuration = userSessionDurations.find(userSessionDuration => (userSessionDuration.userId).toString() === userId)
-        // const currentUserPerformance = userPerformances.find(userPerformance => (userPerformance.userId).toString() === userId)
+        //     const currentUserData = userDatas.find(userData => (userData.id).toString() === userId)
+        //     const currentUserActivity = UserActivities.find(userActivity => (userActivity.userId).toString() === userId)
+        //     const currentUserSessionDuration = userSessionDurations.find(userSessionDuration => (userSessionDuration.userId).toString() === userId)
+        //     const currentUserPerformance = userPerformances.find(userPerformance => (userPerformance.userId).toString() === userId)
 
-        // if((!currentUserData) || (!currentUserActivity) || (!currentUserSessionDuration) || (!currentUserPerformance)){
-        //     navigate('/Error')
+        //     if((!currentUserData) || (!currentUserActivity) || (!currentUserSessionDuration) || (!currentUserPerformance)){
+        //         navigate('/Error')
+        //     }
+
+        //     setUserData(currentUserData)
+        //     setUserActivity(currentUserActivity)
+        //     setUserSessionDuration(currentUserSessionDuration)
+        //     setUserPerformance(currentUserPerformance)
         // }
+        else{
+            setIsDataLoading(true)
 
-        // setUserData(currentUserData)
-        // setUserActivity(currentUserActivity)
-        // setUserSessionDuration(currentUserSessionDuration)
-        // setUserPerformance(currentUserPerformance)
+            getAPIUserDataMain(userId)
+                .then(data => setUserData(data))
+                .then(() => {setIsDataLoading(false); setIsError(false)})
+                .catch(error => setIsError(true))
 
-        setIsDataLoading(true)
+            getAPIUserDataActivity(userId)
+                .then((data) => setUserActivity(data))
+                .then(() => {setIsDataLoading(false); setIsError(false)})
+                .catch(error => setIsError(true))
 
-        getAPIUserData('user/' + userId)
-            .then(data => setUserData(data))
-            .then(() => {setIsDataLoading(false); setIsError(false)})
-            .catch(error => setIsError(true))
-
-        getAPIUserData('user/' + userId + '/activity')
-            .then((data) => setUserActivity(data))
-            .then(() => {setIsDataLoading(false); setIsError(false)})
-            .catch(error => setIsError(true))
-
-        getAPIUserData('user/' + userId + '/average-sessions')
-            .then((data) => setUserSessionDuration(data))
-            .then(() => {setIsDataLoading(false); setIsError(false)})
-            .catch(error => setIsError(true))
-    
-        getAPIUserData('user/' + userId + '/performance')
-            .then((data) => setUserPerformance(data))
-            .then(() => {setIsDataLoading(false); setIsError(false)})
-            .catch(error => setIsError(true))
+            getAPIUserDataAverage(userId)
+                .then((data) => setUserSessionDuration(data))
+                .then(() => {setIsDataLoading(false); setIsError(false)})
+                .catch(error => setIsError(true))
         
-    }, [userId])
+            getAPIUserDataPerformance(userId)
+                .then((data) => setUserPerformance(data))
+                .then(() => {setIsDataLoading(false); setIsError(false)})
+                .catch(error => setIsError(true))
+        }
+
+    }, [userId, navigate])
 
     if((!userData) || (!userActivity) || (!userSessionDuration) || (!userPerformance)){
-        console.log('null', userData)
         return null
     }
 
@@ -93,7 +94,7 @@ export default function User(){
                 />
                 <section className='charts'>
                     <article>
-                        <div className='mainChart'>
+                        <div className='activityChart'>
                             <ActivityChart 
                                     dataActivity={userActivity.sessions}
                             />
@@ -137,14 +138,15 @@ export default function User(){
                         />
                         <NutritionCard
                             icon={ProteinIcon}
-                            keyDataSwitch={[`${userData.keyData.carbohydrateCount}`, 'g']}
+                            keyDataSwitch={[`${userData.keyData.lipidCount}`, 'g']}
                             keyDataType='Lipides'
                             id = {userData.id}
                         />
-
                     </aside>
                 </section>
             </div>
         </div>
     ))
 }
+
+export default User

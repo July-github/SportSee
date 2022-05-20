@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import logo from '../../assets/logo.svg'
 
-export default function Header(){
+function Header(){
 
     return(
         <header className='headerContainer'>
@@ -15,3 +15,5 @@ export default function Header(){
         </header>
     )
 }
+
+export default Header
