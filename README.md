@@ -1,8 +1,27 @@
-# Getting Started with Create React App
+![logo](https://user-images.githubusercontent.com/76209231/169522099-204659eb-76cb-4da7-a7f9-df91211fef56.svg)
+
+# SportSee
+
+Startup dedicated to sport coaching.\
+Work on a new version of the user profile page with sports analytics dashboard.
+
+# 1. Launching the project
+## 1.1 Prerequisites
+
+* [NodeJS (version 12.18)](https://nodejs.org/en/)
+* [Yarn](https://yarnpkg.com/)
+
+## 1.2 Installing the project
+
+* Fork the repository
+* Clone it on your computer
+* Install the dependencies by running the command yarn (or yarn install) or npm i (or npm install)
+
+# 2. Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## 2.1 Available Scripts
 
 In the project directory, you can run:
 
@@ -39,7 +58,7 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## 2.2 Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
