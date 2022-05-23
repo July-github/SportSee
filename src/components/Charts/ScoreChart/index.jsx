@@ -47,7 +47,7 @@ function ScoreChart({dataScore}){
                         cornerRadius={25} 
                         barSize={10} />
                     <PolarAngleAxis type="number" domain={[0, 1]} tick={false} />
-                    <circle cx="50%" cy="50%" fill="white" r="85"></circle>
+                    <circle cx="50%" cy="50%" fill="white" r="95"></circle>
                 </RadialBarChart>
             </ResponsiveContainer>
             <div className="score">

@@ -1,0 +1,29 @@
+.nutritionCard{
+    background-color: #FBFBFB;
+    padding: 8%;
+    display: flex;
+    width: 100%;
+}
+  
+.nutritionCardIcon{
+    width: 60px;
+    height: 60px;
+}
+
+.nutritionCardText{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.nutritionCardKeyData{
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.nutritionCardKeyType{
+    font-weight: 500;
+    font-size: 14px;
+}

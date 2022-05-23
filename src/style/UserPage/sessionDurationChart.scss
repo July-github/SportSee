@@ -1,0 +1,40 @@
+.sessionDurationChart{
+    background-color: #FF0000;
+    border-radius: 5px;
+    height: 263px;
+    width: 32%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+  
+.sessionDurationWrap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.sessionDurationChartTitle{
+  font-size: 15px;
+  font-weight: 500;
+  color: #FFFFFF;
+  opacity: 0.5;
+  width: 150px;
+  margin-left: 20px;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+}
+
+.sessionDurationChartTooltip{
+  display: flex;
+  width: 40px;
+  height: 25px;
+  background-color: #FFFFFF;
+  font-size: 8px;
+  font-weight: 500;
+  justify-content: center;
+  align-items: center;
+}
+  

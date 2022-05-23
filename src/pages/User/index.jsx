@@ -30,7 +30,7 @@ function User(){
 
     useEffect(()=>{
         let datasMocked = false
-        if(datasMocked=true){
+        if(datasMocked = true){
             const userDatas = USER_MAIN_DATA
             const UserActivities = USER_ACTIVITY
             const userSessionDurations = USER_AVERAGE_SESSIONS

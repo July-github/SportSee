@@ -1,0 +1,37 @@
+.scoreChart{
+    position: relative;
+    background-color: #FBFBFB;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    width: 32%;
+    height: 263px;
+}
+  
+.scoreChartWrap{
+    height: 100%;
+    width: 100%;
+
+.score{
+    position: absolute;
+    top: 38%;
+    left: 38%;
+    margin: 0;
+}
+
+.scoreText{
+    font-size: 16px;
+    font-weight: 500;
+    color: #74798C;
+    text-align: center;
+    margin: 0;
+}
+
+.scoreResult{
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    color: #282D30;
+    margin: 0;
+    }
+}
