@@ -16,6 +16,11 @@ root.render(
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/user/:userId" element={<User />} />
+        <Route path="/user/:userId/activity" element={<User />} />
+        <Route path="/user/:userId/average-sessions" element={<User />} />
+        <Route path="/user/:userId/today-score" element={<User />} />
+        <Route path="/user/:userId/activities" element={<User />} />
+        <Route path="/user/:userId/key-data" element={<User />} />
         <Route path="/*" element={<Error />} />
       </Routes>
     </Router>

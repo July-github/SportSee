@@ -13,6 +13,7 @@ import SessionDurationChart from '../../components/Charts/SessionDurationChart'
 import PerformanceChart from '../../components/Charts/PerformanceChart'
 import ScoreChart from '../../components/Charts/ScoreChart'
 import {getAPIUserDataMain, getAPIUserDataActivity, getAPIUserDataAverage, getAPIUserDataPerformance} from '../../services/fetch'
+import Spinner from '../../components/Spinner/index'
 
 function User(){
     const navigate = useNavigate()
@@ -28,26 +29,28 @@ function User(){
     const [isError, setIsError]=useState(false)
 
     useEffect(()=>{
-        // if(datasMocked){
-        //     const userDatas = USER_MAIN_DATA
-        //     const UserActivities = USER_ACTIVITY
-        //     const userSessionDurations = USER_AVERAGE_SESSIONS
-        //     const userPerformances = USER_PERFORMANCE
+        let datasMocked = false
+        if(datasMocked=true){
+            const userDatas = USER_MAIN_DATA
+            const UserActivities = USER_ACTIVITY
+            const userSessionDurations = USER_AVERAGE_SESSIONS
+            const userPerformances = USER_PERFORMANCE
 
-        //     const currentUserData = userDatas.find(userData => (userData.id).toString() === userId)
-        //     const currentUserActivity = UserActivities.find(userActivity => (userActivity.userId).toString() === userId)
-        //     const currentUserSessionDuration = userSessionDurations.find(userSessionDuration => (userSessionDuration.userId).toString() === userId)
-        //     const currentUserPerformance = userPerformances.find(userPerformance => (userPerformance.userId).toString() === userId)
+            const currentUserData = userDatas.find(userData => (userData.id).toString() === userId)
+            const currentUserActivity = UserActivities.find(userActivity => (userActivity.userId).toString() === userId)
+            const currentUserSessionDuration = userSessionDurations.find(userSessionDuration => (userSessionDuration.userId).toString() === userId)
+            const currentUserPerformance = userPerformances.find(userPerformance => (userPerformance.userId).toString() === userId)
 
-        //     if((!currentUserData) || (!currentUserActivity) || (!currentUserSessionDuration) || (!currentUserPerformance)){
-        //         navigate('/Error')
-        //     }
+            if((!currentUserData) || (!currentUserActivity) || (!currentUserSessionDuration) || (!currentUserPerformance)){
+                navigate('/Error')
+            }
 
-        //     setUserData(currentUserData)
-        //     setUserActivity(currentUserActivity)
-        //     setUserSessionDuration(currentUserSessionDuration)
-        //     setUserPerformance(currentUserPerformance)
-        // }
+            setUserData(currentUserData)
+            setUserActivity(currentUserActivity)
+            setUserSessionDuration(currentUserSessionDuration)
+            setUserPerformance(currentUserPerformance)
+
+        }
         else{
             setIsDataLoading(true)
 
@@ -79,7 +82,7 @@ function User(){
     }
 
     if((isDataLoading)){
-        return(<h1>Loading...</h1>)
+        return(<Spinner />)
     }
 
     return (
@@ -146,7 +149,8 @@ function User(){
                 </section>
             </div>
         </div>
-    ))
+    )
+    )
 }
 
 export default User
