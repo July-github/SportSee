@@ -13,35 +13,42 @@ Work on a new version of the user profile page with sports analytics dashboard.
 
 
 # 1. Launching the project
+
 ## 1.1 Prerequisites
 
 * [NodeJS (version 12.18)](https://nodejs.org/en/) to run npm command
 or
 * [Yarn](https://yarnpkg.com/)
 
+
 ## 1.2 Installing the project
 
 ### Launching Back-End
 
-1. Clone the repo of the back-end 
+1. Clone the repo of the back-end
+
     `git clone https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard.git`
 2. Install the dependencies by running the command 
-    `yarn` (or `yarn install`) 
-    or
-    `npm i` (or `npm install)
-3. Launch the back-end on port 3000 (http://localhost:3000) by running the command `yarn dev` or `npm run start`
+
+    `yarn` (or `yarn install`) or `npm i` (or `npm install`)
+3. Launch the back-end on port 3000 (http://localhost:3000) by running the command 
+
+    `yarn dev` or `npm run start`
 
 ### Launching Front-End
 
 1. Clone the repo of the front-end
+
     `git clone https://github.com/July-github/SportSee.git`
 2. Install the dependencies by running the command 
-    `yarn` (or `yarn install`) 
-    or
-    `npm i` (or `npm install`)
-3. Launch the front-end on port 3001 (http://localhost:3001) by running the command `yarn start` or `npm start`
+
+    `yarn` (or `yarn install`) or `npm i` (or `npm install`)
+3. Launch the front-end on port 3001 (http://localhost:3001) by running the command 
+
+    `yarn start` or `npm start`
 
 *Currently, there are 2 users (user 12 & user 18)*
+
 
 # 2. Getting Started with Create React App
 
