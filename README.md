@@ -120,3 +120,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+# 3. Learn more 
+### Recharts
+
+[A composable charting library built on React components](https://recharts.org/en-US/)
+
+### Sass
+
+[CSS extension language](https://sass-lang.com/)
