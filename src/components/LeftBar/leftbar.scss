@@ -1,0 +1,37 @@
+.leftBarContainer{
+  display:flex;
+  flex-direction: column;
+  width: 80px;
+  background-color: #020203;
+  position: relative;
+
+  img{
+    width: 60px;
+    height: 60px;
+    margin: 10px;
+    border-radius: 6px;
+  }
+}
+  
+.copyright{
+  color: white;
+  font-size: 12px;
+  writing-mode: vertical-rl;
+  -moz-writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  -moz-transform:rotate(180deg);
+  position: absolute;
+  bottom: 40px;
+  left: 32px;
+}
+
+.leftBarImgWrap{
+  display:flex;
+  flex-direction: column;
+  width: 80px;
+  height: 100%;
+  background-color: #020203;
+  align-items: center;
+  justify-content: center;
+}
+  

@@ -28,9 +28,10 @@ function User(){
 
     const [isError, setIsError]=useState(false)
 
+    let datasMocked = false
+
     useEffect(()=>{
-        let datasMocked = false
-        if(datasMocked = true){
+        if(datasMocked === true){
             const userDatas = USER_MAIN_DATA
             const UserActivities = USER_ACTIVITY
             const userSessionDurations = USER_AVERAGE_SESSIONS
@@ -75,7 +76,7 @@ function User(){
                 .catch(error => setIsError(true))
         }
 
-    }, [userId, navigate])
+    }, [userId, navigate, datasMocked])
 
     if((!userData) || (!userActivity) || (!userSessionDuration) || (!userPerformance)){
         return null

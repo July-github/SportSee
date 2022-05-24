@@ -1,13 +1,13 @@
-@import 'spinner.scss'; 
-@import 'homePage.scss';
-@import './UserPage/activityChart.scss';
-@import './UserPage/leftbar.scss';
-@import './UserPage/nutritionCard.scss';
-@import './UserPage/performanceChart.scss';
-@import './UserPage/scoreChart.scss';
-@import './UserPage/sessionDurationChart.scss';
-@import './UserPage/title.scss';
-@import './UserPage/userIndex.scss';
+@import '../components/Spinner/spinner.scss'; 
+@import '../pages/Home/homePage.scss';
+@import '../components/Charts/ActivityChart/activityChart.scss';
+@import '../components/LeftBar/leftbar.scss';
+@import '../components/Charts/NutritionCard/nutritionCard.scss';
+@import '../components/Charts/PerformanceChart/performanceChart.scss';
+@import '../components/Charts/ScoreChart/scoreChart.scss';
+@import '../components/Charts/SessionDurationChart/sessionDurationChart.scss';
+@import '../components/Title/title.scss';
+@import '../pages/User/userIndex.scss';
 
 
 body {

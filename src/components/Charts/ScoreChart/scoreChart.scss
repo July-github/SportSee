@@ -7,15 +7,24 @@
     width: 32%;
     height: 263px;
 }
-  
+
+.scoreChartTitle{
+    position: absolute;
+    font-size: 15px;
+    font-weight: 500;
+    margin: 0;
+    top: 20px;
+    left: 20px;
+    }
+
 .scoreChartWrap{
     height: 100%;
     width: 100%;
 
 .score{
     position: absolute;
-    top: 38%;
-    left: 38%;
+    top: 40%;
+    width: 100%;
     margin: 0;
 }
 

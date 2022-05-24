@@ -27,7 +27,7 @@ function SessionDurationChart({dataSessionDuration}){
  * @param {boolean} active - is Tootip active
  * @returns the value when a dot on the line is pointed
  */
- function CustomToolTypeSessionDuration({payload, active}){
+    function CustomToolTypeSessionDuration({payload, active}){
         if(active){
             return (
                 <div className='sessionDurationChartTooltip'>
